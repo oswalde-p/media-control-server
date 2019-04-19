@@ -11,6 +11,11 @@ npm install
 npm start
 ```
 
+By default, the app will start listening on port 8675. You can specify another port with an env variable:
+```
+PORT=3000 node index.js
+```
+
 ## API
 
 ### GET /:command
