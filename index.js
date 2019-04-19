@@ -1,11 +1,12 @@
 const express = require('express')
+const ip = require('ip')
 const controlService = require('./control-service')
 
 const app = express()
 
 const PORT = process.env.PORT || 8675
 
-app.get('/', (req, res) => res.send(200))
+app.get('/', (req, res) => res.sendStatus(200))
 
 app.get('/ping', (req, res) => res.sendStatus(200))
 
@@ -23,7 +24,10 @@ app.get('/:command', (req, res) => {
   }
 })
 
-app.listen(PORT, () => console.log('Listening on port ' + PORT))
 
+const server = app.listen(PORT, () => {
+  const port = server.address().port
+  console.log(`Listening at http://${ip.address()}:${port}`)
+})
 
 

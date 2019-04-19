@@ -16,7 +16,6 @@ const keyMap = {
 
 function xDo(key){
   const command = `xdotool key ${key}`
-  console.log(`executing "${command}"`)
   exec(command)
 }
 
