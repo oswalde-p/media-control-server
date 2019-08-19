@@ -29,8 +29,18 @@ Execute the corresponding command. Options are:
 - next
 - previous
 - space
+- up
+- down
+- left
+- right
+- return
+- backspace
 
-Response eg:
+e.g.
+```
+GET localhost:8675/volumedown
+```
+Response:
 ```
 {
   "command": "volumedown"
