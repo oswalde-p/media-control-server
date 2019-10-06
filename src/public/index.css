@@ -2,7 +2,65 @@ h1 {
   color: blue;
 }
 
-#button-play {
-  display: block;
-  font-size: 4em;
+#controls {
+  display: grid;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
 }
+
+#controls > button {
+  border: 1px solid gray;
+  border-radius: 1em;
+  display: block;
+  height: 20vh;
+  font-size: 1em;
+}
+
+#button-play {
+  grid-column: 5;
+  grid-row: 3;
+}
+
+#button-stop {
+  grid-column: 4;
+  grid-row: 3;
+}
+
+#button-volume-up {
+  grid-column: 5;
+  grid-row: 1;
+}
+
+#button-volume-down {
+  grid-column: 4;
+  grid-row: 1;
+}
+
+#button-up {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+#button-down {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+#button-left {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+#button-right {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+#button-select {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+
