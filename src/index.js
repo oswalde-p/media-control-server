@@ -1,12 +1,15 @@
 const express = require('express')
 const ip = require('ip')
+const path = require('path')
 const controlService = require('./control-service')
 
 const app = express()
 
 const PORT = process.env.PORT || 8675
 
-app.get('/', (req, res) => res.sendStatus(200))
+app.use(express.static(path.join(__dirname, 'public')))
+
+app.get('/', (req, res) => res.render('./public/index.html'))
 
 app.get('/ping', (req, res) => res.sendStatus(200))
 
