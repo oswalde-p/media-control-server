@@ -57,6 +57,7 @@ function play() {
   sendToServer('space')
   isAudioPlaying = true
   playButton.innerHTML = 'Pause'
+  playButton.classList.remove('paused')
 }
 
 function pause() {
@@ -64,6 +65,7 @@ function pause() {
   sendToServer('space')
   isAudioPlaying = false
   playButton.innerHTML = 'Play'
+  playButton.classList.add('paused')
 }
 
 function stop() {
