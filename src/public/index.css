@@ -30,6 +30,10 @@ audio {
   font-size: 1em;
 }
 
+button:focus {
+  outline: none;
+}
+
 #button-play {
   border-left: 10vw solid yellow;
   border-right: 0;
