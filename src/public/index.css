@@ -38,7 +38,7 @@ button:focus {
   border-top:  0;
   grid-column: 5;
   grid-row: 3;
-  height: 6vh;
+  height: 3em;
   margin-right: 0.5em;
   width: 10vw;
 }
@@ -46,8 +46,8 @@ button:focus {
 #button-play.paused {
   border-left: 10vw solid #cc00cc;
   border-right: 0;
-  border-bottom: 3vh solid transparent;
-  border-top:  3vh solid transparent;
+  border-bottom: 1.5em solid transparent;
+  border-top:  1.5em solid transparent;
   height: 0;
   width: 0;
 }
@@ -55,10 +55,10 @@ button:focus {
 
 #button-stop {
   border: 3px solid #cc00cc;
-  height: 6vh;
+  height: 3em;
   grid-column: 4;
   grid-row: 3;
-  width: 12vw;
+  width: 3em;
 }
 
 #button-volume-up {
