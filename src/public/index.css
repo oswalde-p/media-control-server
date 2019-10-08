@@ -1,5 +1,8 @@
 body {
   background-color: #0f0f0f;
+  box-sizing: border-box;
+  margin: 0;
+  width: 100%;
 }
 h1 {
   display: none;
@@ -12,11 +15,12 @@ audio {
 #controls {
   bottom: 10vh;
   display: grid;
-  grid-column-gap: 30px;
+  grid-column-gap: 20px;
   grid-row-gap: 30px;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   position: absolute;
+  width: 95%;
 }
 
 #controls > button {
@@ -25,6 +29,41 @@ audio {
   display: block;
   padding: 0;
   font-size: 1em;
+}
+
+#volume-slider {
+  grid-column: 3/-1;
+}
+
+#volume-slider label {
+  display: none;
+}
+
+input[type=range] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+  margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #cc00cc;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
 }
 
 button:focus {
@@ -37,7 +76,7 @@ button:focus {
   border-bottom: 0;
   border-top:  0;
   grid-column: 5;
-  grid-row: 3;
+  grid-row: 4;
   height: 3em;
   margin-right: 0.5em;
   width: 10vw;
@@ -57,7 +96,7 @@ button:focus {
   border: 3px solid #cc00cc;
   height: 3em;
   grid-column: 4;
-  grid-row: 3;
+  grid-row: 4;
   width: 3em;
 }
 
@@ -66,7 +105,7 @@ button:focus {
   color: #cc00cc !important;
   font-size: 3.5em !important;
   grid-column: 5;
-  grid-row: 1;
+  grid-row: 2;
 }
 
 #button-volume-down {
@@ -74,7 +113,7 @@ button:focus {
   color: #cc00cc !important;
   font-size: 3.5em !important;
   grid-column: 4;
-  grid-row: 1;
+  grid-row: 2;
 }
 
 #button-up {
@@ -83,7 +122,7 @@ button:focus {
   border-bottom: 2.5em solid #cc00cc;
   border-top: 0;
   grid-column: 2;
-  grid-row: 1;
+  grid-row: 2;
   height: 0;
   margin-top: 1em;
   width: 0;
@@ -96,7 +135,7 @@ button:focus {
   border-bottom: 0;
   border-top:  2.5em solid #cc00cc;
   grid-column: 2;
-  grid-row: 3;
+  grid-row: 4;
   height: 0;
   margin-bottom: 1em;
   width: 0;
@@ -108,7 +147,7 @@ button:focus {
   border-bottom: 2em solid transparent;
   border-top:  2em solid transparent;
   grid-column: 1;
-  grid-row: 2;
+  grid-row: 3;
   height: 0;
   margin-left: 1em;
   width: 0;
@@ -120,7 +159,7 @@ button:focus {
   border-bottom: 2em solid transparent;
   border-top:  2em solid transparent;
   grid-column: 3;
-  grid-row: 2;
+  grid-row: 3;
   height: 0;
   margin-right: 1em;
   width: 0;
@@ -131,7 +170,7 @@ button:focus {
   border-radius: 50%;
   height: 4em;
   grid-column: 2;
-  grid-row: 2;
+  grid-row: 3;
   width: 4em;
 }
 

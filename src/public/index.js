@@ -1,5 +1,5 @@
 const SERVER_URL = window.location.href
-
+const currentVolume = 10
 // Add notification info if it's supported
 if ('mediaSession' in navigator) {
   navigator.mediaSession.metadata = new MediaMetadata({
@@ -48,9 +48,15 @@ const selectButton = document.getElementById('button-select')
 selectButton.addEventListener('click', () => sendToServer('return'))
 
 const volumeUpButton = document.getElementById('button-volume-up')
-volumeUpButton.addEventListener('click', () => sendToServer('volumeup'))
+volumeUpButton.addEventListener('click', () => {
+  sendToServer('volumeup')
+  getVolume()
+})
 const volumeDownButton = document.getElementById('button-volume-down')
-volumeDownButton.addEventListener('click', () => sendToServer('volumedown'))
+volumeDownButton.addEventListener('click', () => {
+  sendToServer('volumedown')
+  getVolume()
+})
 
 function play() {
   document.querySelector('audio').play()
@@ -73,5 +79,28 @@ function stop() {
   sendToServer('backspace')
   isAudioPlaying = false
   playButton.innerHTML = 'Play'
+}
+
+// initialise the volume level
+getVolume()
+
+function updateVolume(vol){
+  setVolume(vol)
+}
+
+function getVolume() {
+  const req = new XMLHttpRequest()
+  req.addEventListener("load", function() {
+    const level = JSON.parse(this.responseText).level
+    document.getElementById("range-volume").value = level
+  })
+  req.open('GET', `${SERVER_URL}volume`)
+  req.send()
+}
+
+function setVolume(level) {
+  const req = new XMLHttpRequest()
+  req.open('GET', `${SERVER_URL}volume/${level}`)
+  req.send()
 }
 
