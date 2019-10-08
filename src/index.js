@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 8675
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.get('/', (req, res) => res.render('./public/index.html'))
-
+app.get('/favicon.ico', (req, res) => res.render('./public/favicon.ico'))
 app.get('/ping', (req, res) => res.sendStatus(200))
 
 app.get('/:command', (req, res) => {
