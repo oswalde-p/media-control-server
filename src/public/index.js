@@ -35,6 +35,9 @@ playButton.addEventListener('click', () => isAudioPlaying ? pause() : play())
 const stopButton = document.getElementById('button-stop')
 stopButton.addEventListener('click', stop)
 
+const fixStateButton = document.getElementById('button-fix-state')
+fixStateButton.addEventListener('click', swapPlayState)
+
 const upButton = document.getElementById('button-up')
 upButton.addEventListener('click', () => sendToServer('up'))
 const downButton = document.getElementById('button-down')
@@ -79,6 +82,17 @@ function stop() {
   sendToServer('backspace')
   isAudioPlaying = false
   playButton.innerHTML = 'Play'
+}
+
+function swapPlayState() {
+  isAudioPlaying = !isAudioPlaying
+  if (isAudioPlaying) {
+    playButton.innerHTML = 'Pause'
+    playButton.classList.remove('paused')
+    return
+  }
+  playButton.innerHTML = 'Play'
+  playButton.classList.add('paused')
 }
 
 // initialise the volume level
