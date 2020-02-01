@@ -1,10 +1,32 @@
 # media-control-server
 
-A very simple express server to control media playback. Uses xdotool to simulate key presses in response to GET requests. Currently only Linux is supported due to the use of xdotool. Not secure at all, use at your own risk :)
+A very simple express server to control media playback. Executes key presses in response to HTTP requests. Not secure at all use at your own risk :)
+
+Supports Linux and macOS
+
+## Using
+
+0. Requires node and npm. Get them (here)[https://nodejs.org/]
+1. First, clone the repo and install dependencies:
+
+```bash
+git clone https://github.com/oswalde-p/media-control-server.git
+cd media-control-server
+npm install
+```
+
+2. Start the server:
+```bash
+npm start
+```
+
+3. Make sure your phone + computer are on the same wifi network
+4. On your phone, visit the url shown in the terminal
+
 
 ## Running
 
-```
+```bash
 git clone https://github.com/oswalde-p/media-control-server.git
 cd media-control-server
 npm install
@@ -19,7 +41,7 @@ PORT=3000 node index.js
 ## API
 
 ### GET /:command
-Execute the corresponding command. Options are: 
+Execute the corresponding command. Options are:
 - play
 - pause
 - volumeup
