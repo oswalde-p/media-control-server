@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#0f0f0f">
+    <link rel="stylesheet" type="text/css" href="index.css"></style>
+  </head>
+  <body>
+    <h1>R*Moat</h1>
+  </body>
+  <audio controls>
+    <source src="silence-1h.mp3" type="audio/mp3"/>
+  </audio>
+
+  <div id="controls">
+    <button id="button-fix-state">🔨</button>
+    <div id="volume-slider">
+      <label for="fader">Volume</label>
+      <input type="range" id="range-volume" min="0" max="100" step="5" value="0" oninput="updateVolume(value)">
+    </div>
+    <button id="button-play" class="paused">Play</button>
+    <button id="button-stop">Stop</button>
+    <button id="button-up">Up</button>
+    <button id="button-down">Down</button>
+    <button id="button-left">Left</button>
+    <button id="button-right">Right</button>
+    <button id="button-select">Select</button>
+    <button id="button-volume-up">+</button>
+    <button id="button-volume-down">-</button>
+
+  </div>
+  <script src="index.js"></script>
+
+</html>
