@@ -1,6 +1,6 @@
 # media-control-server
 
-A very simple express server to control media playback. Executes key presses in response to HTTO requests. Not secure at
+A very simple express server to control media playback. Executes key presses in response to HTTP requests. Not secure at
  all, use at your own risk :)
 
 Supports Linux and macOS
