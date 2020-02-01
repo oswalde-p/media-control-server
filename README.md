@@ -1,7 +1,6 @@
 # media-control-server
 
-A very simple express server to control media playback. Executes key presses in response to HTTP requests. Not secure at
- all, use at your own risk :)
+A very simple express server to control media playback. Executes key presses in response to HTTP requests. Not secure at all use at your own risk :)
 
 Supports Linux and macOS
 
@@ -10,14 +9,14 @@ Supports Linux and macOS
 0. Requires node and npm. Get them (here)[https://nodejs.org/]
 1. First, clone the repo and install dependencies:
 
-```
+```bash
 git clone https://github.com/oswalde-p/media-control-server.git
 cd media-control-server
 npm install
 ```
 
 2. Start the server:
-```
+```bash
 npm start
 ```
 
@@ -27,7 +26,7 @@ npm start
 
 ## Running
 
-```
+```bash
 git clone https://github.com/oswalde-p/media-control-server.git
 cd media-control-server
 npm install
