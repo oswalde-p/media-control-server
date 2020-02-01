@@ -6,7 +6,6 @@ function getVolume() {
 }
 
 function setVolume(level) {
-  console.log('setting volume to ' + level + '%')
   exec(`amixer sset Master ${level}%`)
 }
 

@@ -1,8 +1,25 @@
 const express = require('express')
 const ip = require('ip')
 const path = require('path')
-const controlService = require('./control-service')
-const volumeService = require('./volume')
+const os = require('os')
+const OS_TYPE = os.type()
+
+let controlService
+let volumeService
+
+switch (OS_TYPE) {
+  case 'Linux':
+    controlService = require('./linux/control-service')
+    volumeService = require('./linux/volume')
+    break
+  case 'Darwin':
+    controlService = require('./mac/control-service')
+    volumeService = require('./mac/volume')
+    break
+  default:
+    console.log(`Unknown operation system: ${OS_TYPE}`)
+    process.exit(1)
+}
 
 const app = express()
 
@@ -25,15 +42,15 @@ app.get('/volume/:level', (req, res) => {
   }
 })
 
-app.get('/volume', (req, res) => {
-  try{
-    const level = volumeService.getVolume()
-    res.status(200).send({level})
-  } catch(err){
-    console.error(err)
-    res.status(500).send()
-  }
-})
+// app.get('/volume', (req, res) => {
+//   try{
+//     const level = volumeService.getVolume()
+//     res.status(200).send({level})
+//   } catch(err){
+//     console.error(err)
+//     res.status(500).send()
+//   }
+// })
 
 app.get('/:command', (req, res) => {
   const { command } = req.params
