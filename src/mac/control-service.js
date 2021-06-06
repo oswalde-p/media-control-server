@@ -13,11 +13,11 @@ const keyMap = {
 function handle(query) {
   const code = keyMap[query]
   const template = `tell application \\"System Events\\"\n  key code ${code}\nend tell`
-try {
-  exec(`osascript -e "${template}"`)
-  } catch(err) {
-    console.log(err)
-  }
+  try {
+      exec(`osascript -e "${template}"`)
+    } catch(err) {
+      console.log(err)
+    }
   return
 }
 
