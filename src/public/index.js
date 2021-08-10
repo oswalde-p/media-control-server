@@ -30,10 +30,9 @@ function sendToServer(command){
 
 // add event listeners for dom elements
 const playButton = document.getElementById('button-play')
-playButton.addEventListener('click', () => isAudioPlaying ? pause() : play())
-
-const stopButton = document.getElementById('button-stop')
-stopButton.addEventListener('click', stop)
+const pauseButton = document.getElementById('button-pause')
+playButton.addEventListener('click', play)
+pauseButton.addEventListener('click', pause)
 
 const fixStateButton = document.getElementById('button-fix-state')
 fixStateButton.addEventListener('click', swapPlayState)
@@ -50,49 +49,42 @@ rightButton.addEventListener('click', () => sendToServer('right'))
 const selectButton = document.getElementById('button-select')
 selectButton.addEventListener('click', () => sendToServer('return'))
 
-const volumeUpButton = document.getElementById('button-volume-up')
-volumeUpButton.addEventListener('click', () => {
-  sendToServer('volumeup')
-  getVolume()
-})
-const volumeDownButton = document.getElementById('button-volume-down')
-volumeDownButton.addEventListener('click', () => {
-  sendToServer('volumedown')
-  getVolume()
-})
+// const volumeUpButton = document.getElementById('button-volume-up')
+// volumeUpButton.addEventListener('click', () => {
+//   sendToServer('volumeup')
+//   getVolume()
+// })
+// const volumeDownButton = document.getElementById('button-volume-down')
+// volumeDownButton.addEventListener('click', () => {
+//   sendToServer('volumedown')
+//   getVolume()
+// })
 
 function play() {
   document.querySelector('audio').play()
   sendToServer('space')
   isAudioPlaying = true
-  playButton.innerHTML = 'Pause'
-  playButton.classList.remove('paused')
+  playButton.style.display = 'none'
+  pauseButton.style.display = 'block'
 }
 
 function pause() {
   document.querySelector('audio').pause()
   sendToServer('space')
   isAudioPlaying = false
-  playButton.innerHTML = 'Play'
-  playButton.classList.add('paused')
-}
-
-function stop() {
-  document.querySelector('audio').pause()
-  sendToServer('backspace')
-  isAudioPlaying = false
-  playButton.innerHTML = 'Play'
+  pauseButton.style.display = 'none'
+  playButton.style.display = 'block'
 }
 
 function swapPlayState() {
   isAudioPlaying = !isAudioPlaying
   if (isAudioPlaying) {
-    playButton.innerHTML = 'Pause'
-    playButton.classList.remove('paused')
+    pauseButton.style.display = 'none'
+    playButton.style.display = 'block'
     return
   }
-  playButton.innerHTML = 'Play'
-  playButton.classList.add('paused')
+  playButton.style.display = 'none'
+  pauseButton.style.display = 'block'
 }
 
 // initialise the volume level

@@ -11,23 +11,21 @@
     <source src="silence-1h.mp3" type="audio/mp3"/>
   </audio>
 
-  <div id="controls">
-    <button id="button-fix-state">🔨</button>
-    <div id="volume-slider">
-      <label for="fader">Volume</label>
-      <input type="range" id="range-volume" min="0" max="100" step="5" value="0" oninput="updateVolume(value)">
-    </div>
-    <button id="button-play" class="paused">Play</button>
-    <button id="button-stop">Stop</button>
-    <button id="button-up">Up</button>
-    <button id="button-down">Down</button>
-    <button id="button-left">Left</button>
-    <button id="button-right">Right</button>
-    <button id="button-select">Select</button>
-    <button id="button-volume-up">+</button>
-    <button id="button-volume-down">-</button>
-
+  <img id="button-fix-state" src="swap.png"></img>
+  <div id="volume-slider">
+    <input type="range" id="range-volume" min="0" max="100" step="5" value="0" oninput="updateVolume(value)">
   </div>
+  <div id="d-pad" >
+    <div class="d-pad_button" id="button-up"></div>
+    <div class="d-pad_button" id="button-down"></div>
+    <div class="d-pad_button" id="button-left"></div>
+    <div class="d-pad_button" id="button-right"></div>
+    <div class="d-pad_button" id="button-select"></div>
+  </div>
+  <img id="button-play" src="play-button.png"></img>
+  <img id="button-pause" src="pause-button.png"></img>
+  <button id="button-pause"></button>
+
   <script src="index.js"></script>
 
 </html>

@@ -42,15 +42,15 @@ app.get('/volume/:level', (req, res) => {
   }
 })
 
-// app.get('/volume', (req, res) => {
-//   try{
-//     const level = volumeService.getVolume()
-//     res.status(200).send({level})
-//   } catch(err){
-//     console.error(err)
-//     res.status(500).send()
-//   }
-// })
+app.get('/volume', async (req, res) => {
+  try{
+    const level = await volumeService.getVolume()
+    res.status(200).send({level})
+  } catch(err){
+    console.error(err)
+    res.status(500).send()
+  }
+})
 
 app.get('/:command', (req, res) => {
   const { command } = req.params
